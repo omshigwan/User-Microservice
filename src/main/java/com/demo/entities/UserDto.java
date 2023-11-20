@@ -1,8 +1,11 @@
 package com.demo.entities;
 
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 public class UserDto {
@@ -15,6 +18,10 @@ public class UserDto {
 	@Email
 	private String email;
 	
+	@Enumerated(EnumType.STRING)
+    @NotNull
+    private Role role;
+	
 	@NotEmpty
 	@Size(min = 3)
 	private String password;
@@ -22,17 +29,14 @@ public class UserDto {
 	public UserDto() {
 		super();
 	}
-	
 
 	public long getId() {
 		return id;
 	}
 
-
 	public void setId(long id) {
 		this.id = id;
 	}
-
 
 	public String getUsername() {
 		return username;
@@ -50,6 +54,14 @@ public class UserDto {
 		this.email = email;
 	}
 
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
 	public String getPassword() {
 		return password;
 	}
@@ -57,5 +69,6 @@ public class UserDto {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
 	
 }
