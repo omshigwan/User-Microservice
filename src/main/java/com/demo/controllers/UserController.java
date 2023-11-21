@@ -25,13 +25,13 @@ public class UserController {
 
 	// save user in database(db)
 	@PostMapping
-	public ResponseEntity<UserDto> saveDepartment(@RequestBody UserDto userDto) {
+	public ResponseEntity<UserDto> saveUser(@RequestBody UserDto userDto) {
 		return userService.saveUser(userDto);
 	}
 
 	// authenticate user
 	@GetMapping("/authenticate")
-	public ResponseEntity<String> authenticate(@RequestBody UserDto userDto) {
+	public ResponseEntity<String> authenticateUser(@RequestBody UserDto userDto) {
 		return userService.authenticate(userDto);
 	}
 
