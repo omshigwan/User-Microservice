@@ -29,6 +29,12 @@ public class UserController {
 		return userService.saveUser(userDto);
 	}
 
+	// authenticate user
+	@GetMapping("/authenticate")
+	public ResponseEntity<String> authenticate(@RequestBody UserDto userDto) {
+		return userService.authenticate(userDto);
+	}
+
 	// Retrieve user by id from db
 	@GetMapping("/id/{userId}")
 	public ResponseEntity<UserDto> getUserById(@PathVariable("userId") long id) {
@@ -52,16 +58,16 @@ public class UserController {
 	public ResponseEntity<List<UserDto>> getAllUsers() {
 		return userService.getAllUsers();
 	}
-	
-	//update user in db by id
+
+	// update user in db by id
 	@PutMapping("/update/{userid}")
-	public ResponseEntity<UserDto> updateUser( @PathVariable("userid") Long userid ,@RequestBody UserDto userDto ) {
-            return userService.updateUser(userDto, userid);        
+	public ResponseEntity<UserDto> updateUser(@PathVariable("userid") Long userid, @RequestBody UserDto userDto) {
+		return userService.updateUser(userDto, userid);
 	}
-	
-	//delete user by id
-	 @DeleteMapping("/delete/{userId}")
-	    public ResponseEntity<String> deleteUser(@PathVariable Long userId) {
-	        return userService.deleteUser(userId);
-	    }
+
+	// delete user by id
+	@DeleteMapping("/delete/{userId}")
+	public ResponseEntity<String> deleteUser(@PathVariable Long userId) {
+		return userService.deleteUser(userId);
+	}
 }
