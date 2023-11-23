@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.demo.entities.UserDto;
-import com.demo.services.UserService;
+import com.demo.services.UserServiceImpl;
 
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
 
 	@Autowired
-	UserService userService;
+	UserServiceImpl userService;
 
 	// save user in database(db)
 	@PostMapping
